@@ -1,0 +1,138 @@
+<html lang="ja">
+  
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>不規則動詞</title>
+  <meta name="apple-mobile-web-app-capable" content="yes"> 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=BIZ+UDGothic:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Signika+Negative:wght@300..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+  
+<body>
+  <header id="app-header">
+    <div id="title-area">
+      <p id="header-title">不規則動詞</p>
+    </div>
+    <button id="share-modal-btn">シェア</button>
+  </header>
+  
+  <div id="share-modal" class="modal hidden">
+    <div class="modal-content">
+      <div class="modal-header">
+        <p class="title">シェア</p>
+        <span id="share-modal-close" class="close-button">&times;</span>
+      </div>
+      <img src="qrcode.png" alt="QR Code">
+    </div>
+  </div>
+  
+  <main>
+    <div id="selection-container">
+      <p id="selection-title">出題設定</p>
+      
+      <!--
+      <div class="selection">
+        <div class="title-area">
+          <p class="title">モード</p>
+        </div>
+        <div class="segmented-buttons">
+          <button class="mode-button active" data-mode="normal">通常モード</button>
+          <button class="mode-button" data-mode="disliked">苦手克服モード</button>
+        </div>
+        <p class="detail-message" id="mode-message">全ての単語から出題</p>
+      </div>
+      -->
+      <div class="selection">
+        <div class="title-area">
+          <p class="title">出題形式</p>
+        </div>
+        <div class="segmented-buttons">
+          <button class="type-button active" data-type="card">カード</button>
+          <button class="type-button" data-type="output">一覧で出力する</button>
+        </div>
+      </div>
+      
+      <span class="split-line"></span>
+      
+      <div class="selection">
+        <div class="title-area">
+          <p class="title">出題内容</p>
+        </div>
+        <div class="selects">
+          <p>出題</p>
+          <select id="question-content">
+            <option value="base_form">原形</option>
+            <option value="meaning">意味</option>
+            <option value="present_form">現在形</option>
+            <option value="past_form">過去形</option>
+            <option value="past_participle">過去分詞</option>
+            <option value="present_participle">...ing形</option>
+          </select>
+          <p>解答</p>
+          <select id="answer-content">
+            <option value="base_form">原形</option>
+            <option value="meaning">意味</option>
+            <option value="present_form">現在形</option>
+            <option value="past_form">過去形</option>
+            <option value="past_participle" selected>過去分詞</option>
+            <option value="present_participle">...ing形</option>
+          </select>
+        </div>
+        <p id="content-message" class="error-message"></p>
+      </div>
+      
+      <div class="selection">
+        <div class="title-area">
+          <p class="title">出題内容<span class="mini">(詳細設定･複数可)</span></p>
+        </div>
+        <div class="normal-buttons buttons-box">
+          <button class="detail-button active" data-detail="AAA" data-count="7">A-A-A型</button>
+          <button class="detail-button active" data-detail="ABA" data-count="3">A-B-A型</button>
+          <button class="detail-button active" data-detail="ABB" data-count="28">A-B-B型</button>
+          <button class="detail-button active" data-detail="ABC" data-count="23">A-B-C型</button>
+        </div>
+        <p class="detail-message">総問題数: <span id="all-question">61</span>問</p>
+      </div>
+      
+      <div class="selection">
+        <div class="title-area">
+          <p class="title">出題数</p>
+        </div>
+        <div class="segmented-buttons">
+          <button class="count-button active" data-count="5">5問</button>
+          <button class="count-button" data-count="10">10問</button>
+          <button class="count-button" data-count="20">20問</button>
+          <button class="count-button" data-count="all">全ての問題</button>
+        </div>
+        <p class="detail-message">総問題数が出題数に満たない場合､<br>全ての問題を出題します｡</p>
+        <!--
+        <div class="number-stepper">
+          <button type="button" class="minus-btn" id="count-minus">−</button>
+          <input type="number" value="5" class="number-input" id="count-input" placeholder="数値を入力">
+          <button type="button" class="plus-btn" id="count-plus">+</button>
+        </div>
+        <p class="error-message">数値を入力してください｡</p>
+        -->
+        
+      </div>
+      
+      <span class="split-line"></span>
+      <button id="start-button">スタート！</button>
+      <p id="start-message"></p>
+     
+    </div>
+  </main>
+  
+  <footer>
+    <p>QRコードは株式会社デンソーウェーブの登録商標です。</p>
+  </footer>
+  
+  <script type="module" src="script.js"></script>
+</html>
