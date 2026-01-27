@@ -151,6 +151,8 @@ document.addEventListener('DOMContentLoaded', () => {
       //console.log(`output.html?${params.toString()}`);
       window.location.href = `output.html?${params.toString()}`;
     }
+    startButton.disabled = false;
+    startButton.textContent = "スタート！";
   });
 });
 
