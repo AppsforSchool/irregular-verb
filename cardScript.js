@@ -154,7 +154,7 @@ const detailAnswer = getParmFromUrl('answer');
 let countDownOverlay, countdownTimer, questionContainer;
 let headerQuestion, headerAnswer;
 let nowCountArea;
-let card, cardFrontContent, cardBackContent, cardBarkQuestion;
+let card, cardFrontContent, cardBackContent, cardBackQuestion;
 let showAnswerBtn, nextQuestionBtn;
 document.addEventListener('DOMContentLoaded', () => {
   // count down - DOM
