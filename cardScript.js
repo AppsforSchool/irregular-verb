@@ -206,7 +206,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-function startCountDown() {
+function startCountdown() {
   let count = 3;
   const countdownInterval = setInterval(() => {
     if (count === 0) {
