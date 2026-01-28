@@ -17,24 +17,24 @@ async function loadCardsData() {
   const contentAnswer = getParmFromUrl('answer');
   if (contentQuestion === contentAnswer) {
     console.warn('無効なURLです。');
-    /*
+   
     if (document.referrer) {
         history.back(); // 前のページがある場合は戻る
     } else {
         window.location.href = './index.html'; // 直接アクセスされた場合はトップへ
     }
-    */
+    
   }
   const contents = ["base_form", "meaning", "present_form", "past_form", "past_participle", "present_participle"];
   if (contents.includes(contentQuestion) || contents.includes(contentAnswer)) {
     console.warn('無効なURLです。');
-    /*
+    
     if (document.referrer) {
         history.back(); // 前のページがある場合は戻る
     } else {
         window.location.href = './index.html'; // 直接アクセスされた場合はトップへ
     }
-    */
+    
   }
   
   const details = getParmFromUrl('detail');
@@ -57,15 +57,15 @@ async function loadCardsData() {
   // フェッチ対象がない場合の処理
   if (fetchPromises.length === 0) {
     console.warn('無効なURLです。');
-    /*
+    
     if (document.referrer) {
         history.back(); // 前のページがある場合は戻る
     } else {
         window.location.href = './index.html'; // 直接アクセスされた場合はトップへ
     }
-    */
+    
     // データがない状態での後続処理を開始
-    //alert('無効なURLです。');
+    alert('無効なURLです。');
     //startCountdown(); 
     return;
   }
@@ -82,11 +82,17 @@ async function loadCardsData() {
   } catch (error) {
     console.error('JSONファイルの取得または処理に失敗しました:', error);
     alert('JSONファイルの取得または処理に失敗しました');
+    if (document.referrer) {
+        history.back(); // 前のページがある場合は戻る
+    } else {
+        window.location.href = './index.html'; // 直接アクセスされた場合はトップへ
+    }
   }
 }
 
 loadCardsData();
 
+/*
 cardsData = [
   {
     "base_form": "beat",
@@ -145,6 +151,7 @@ cardsData = [
     "present_participle": "spreading"
   }
 ]; // AAA
+*/
 
 let questions = [];
 const detailQuestion = getParmFromUrl('question');
