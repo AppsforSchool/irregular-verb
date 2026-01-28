@@ -71,7 +71,7 @@ async function loadCardsData() {
     cardsData = results.flat(); // .flat() でネストされた配列を平坦化
     // データの読み込みが完了したら後続処理を呼び出す
     //alert('データロード完了');
-    startCountdown();
+    //startCountdown();
   } catch (error) {
     console.warn('JSONファイルの取得または処理に失敗しました:', error);
     alert('JSONファイルの取得または処理に失敗しました');
@@ -84,7 +84,7 @@ async function loadCardsData() {
   }
 }
 
-loadCardsData();
+
 
 /*
 cardsData = [
@@ -178,7 +178,7 @@ document.addEventListener('DOMContentLoaded', () => {
   cardBackQuestion = document.getElementById('back-question-content');
   
   
-  
+  loadCardsData();
   // count down - Event
   let count = 3;
   const countdownInterval = setInterval(() => {
