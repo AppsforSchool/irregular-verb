@@ -73,7 +73,7 @@ async function loadCardsData() {
     //alert('データロード完了');
     startCountdown();
   } catch (error) {
-    console.error('JSONファイルの取得または処理に失敗しました:', error);
+    console.warn('JSONファイルの取得または処理に失敗しました:', error);
     alert('JSONファイルの取得または処理に失敗しました');
     alert(error);
     if (document.referrer) {
