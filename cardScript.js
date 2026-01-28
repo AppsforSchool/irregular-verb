@@ -1,10 +1,3 @@
-const selectionState = {
-  type: 'card',
-  mode: 'normal',
-  period: new Set(['ancient', 'medieval', 'early_modern']),
-  genre: new Set(['politics', 'military', 'culture', 'religion', 'foreign'])
-};
-
 let cardsData = [];
 
 function getParmFromUrl(parm) {
@@ -82,6 +75,7 @@ async function loadCardsData() {
   } catch (error) {
     console.error('JSONファイルの取得または処理に失敗しました:', error);
     alert('JSONファイルの取得または処理に失敗しました');
+    alert(error);
     if (document.referrer) {
         history.back(); // 前のページがある場合は戻る
     } else {
