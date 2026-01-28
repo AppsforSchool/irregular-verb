@@ -1,0 +1,58 @@
+[
+  {
+    "base_form": "beat",
+    "meaning": "どきどきする",
+    "present_form": "beat(s)",
+    "past_form": "beat",
+    "past_participle": "beat, beaten",
+    "present_participle": "beating"
+  },
+  {
+    "base_form": "cut",
+    "meaning": "切る",
+    "present_form": "cut(s)",
+    "past_form": "cut",
+    "past_participle": "cut",
+    "present_participle": "cutting"
+  },
+  {
+    "base_form": "hurt",
+    "meaning": "傷つける",
+    "present_form": "hurt(s)",
+    "past_form": "hurt",
+    "past_participle": "hurt",
+    "present_participle": "hurting"
+  },
+  {
+    "base_form": "put",
+    "meaning": "置く, つける",
+    "present_form": "put(s)",
+    "past_form": "put",
+    "past_participle": "put",
+    "present_participle": "putting"
+  },
+  {
+    "base_form": "read",
+    "meaning": "読む",
+    "present_form": "read(s)",
+    "past_form": "read",
+    "past_participle": "read",
+    "present_participle": "reading"
+  },
+  {
+    "base_form": "set",
+    "meaning": "準備する",
+    "present_form": "set(s)",
+    "past_form": "set",
+    "past_participle": "set",
+    "present_participle": "setting"
+  },
+  {
+    "base_form": "spread",
+    "meaning": "広がる",
+    "present_form": "spread(s)",
+    "past_form": "spread",
+    "past_participle": "spread",
+    "present_participle": "spreading"
+  }
+]
