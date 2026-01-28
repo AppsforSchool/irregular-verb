@@ -19,7 +19,7 @@ async function loadCardsData() {
     
   }
   const contents = ["base_form", "meaning", "present_form", "past_form", "past_participle", "present_participle"];
-  if (contents.includes(contentQuestion) || contents.includes(contentAnswer)) {
+  if (!contents.includes(contentQuestion) || !contents.includes(contentAnswer)) {
     console.warn('無効なURLです。');
     
     if (document.referrer) {
@@ -166,8 +166,8 @@ document.addEventListener('DOMContentLoaded', () => {
   headerQuestion = document.getElementById('header-question');
   headerAnswer = document.getElementById('header-answer');
   
-  headerQuestion = detailQuestion;
-  headerAnswer = detailAnswer;
+  headerQuestion.textContent = detailQuestion;
+  headerAnswer.textContent = detailAnswer;
   
   // card container - DOM
   nowCountArea = document.getElementById('now-count');
@@ -178,7 +178,7 @@ document.addEventListener('DOMContentLoaded', () => {
   cardBackQuestion = document.getElementById('back-question-content');
   
   
-  loadCardsData();
+  await loadCardsData();
   // count down - Event
   let count = 3;
   const countdownInterval = setInterval(() => {
