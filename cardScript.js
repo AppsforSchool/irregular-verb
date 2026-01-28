@@ -70,8 +70,8 @@ async function loadCardsData() {
     // 取得したデータを一つの配列に結合
     cardsData = results.flat(); // .flat() でネストされた配列を平坦化
     // データの読み込みが完了したら後続処理を呼び出す
-    //alert('データロード完了');
-    //startCountdown();
+    alert('データロード完了');
+    startCountdown();
   } catch (error) {
     console.warn('JSONファイルの取得または処理に失敗しました:', error);
     alert('JSONファイルの取得または処理に失敗しました');
@@ -178,8 +178,35 @@ document.addEventListener('DOMContentLoaded', () => {
   cardBackQuestion = document.getElementById('back-question-content');
   
   
-  await loadCardsData();
+  loadCardsData();
   // count down - Event
+  /*let count = 3;
+  const countdownInterval = setInterval(() => {
+    if (count === 0) {
+      countdownTimer.textContent = 'Go!';
+      count -= 1;
+    } else if (count === -1) {
+      clearInterval(countdownInterval); // カウントダウンを停止
+      questions = shuffle(cardsData);
+      const problemCount = document.getElementById('question-count');
+      problemCount.textContent = questions.length;
+      //console.log(questions);
+      nextQuestion(0);
+      
+      countdownOverlay.classList.add('hidden'); // オーバーレイを非表示
+      questionContainer.classList.remove('hidden'); // 問題文を表示
+    } else {
+      if (count === 3) {
+        countdownTimer.classList.remove('loading');
+      }
+      countdownTimer.textContent = count;
+      count -= 1;
+    }
+  }, 100); // 1秒ごとに実行 => 1000*/
+});
+
+
+function startCountDown() {
   let count = 3;
   const countdownInterval = setInterval(() => {
     if (count === 0) {
@@ -203,7 +230,8 @@ document.addEventListener('DOMContentLoaded', () => {
       count -= 1;
     }
   }, 100); // 1秒ごとに実行 => 1000
-});
+}
+
 
 function shuffle(array) {
   let currentIndex = array.length, randomIndex;
