@@ -1,0 +1,45 @@
+<html lang="ja">
+  
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>英語-不規則動詞</title>
+  <meta name="apple-mobile-web-app-capable" content="yes"> 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=BIZ+UDGothic:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Signika+Negative:wght@300..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="outputStyle.css">
+  <script src="outputScript.js" defer></script>
+</head>
+  
+<body>
+  <header id="app-header">
+    <div id="title-area">
+      <button id="return-button">やめる</button>
+      <p id="header-title"><span id="header-question">----</span>から<span id="header-answer">----</span>を暗記</p>
+    </div>
+    <div id="user-area" class="hidden">
+      <p id="header-username" class="hidden">loading...</p>
+    </div>
+  </header>
+  
+  <div id="loading-overlay">
+    <p id="loading">loading...</p>
+  </div>
+  
+  <main>
+    <div id="question-container" class="hidden">
+      <button id="show-answer-button">答えを表示</button>
+      <div id="questions">
+        <p id="question-area"></p>
+        <p id="answer-area" class="hidden"></p>
+      </div>
+    </div>
+  </main>
+  
+</body>
+</html>
