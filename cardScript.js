@@ -1,99 +1,17 @@
-let cardsData = [];
+const isDebug = true;
 
-function getParmFromUrl(parm) {
-  const params = new URLSearchParams(window.location.search);
-  return params.getAll(parm);
-}
+const debugQuestionParm = "base_form";
+const debugAnswerParm = "present_form";
+const debugDetailParms = ["AAA", "AAB"];
+const debugCountParm = "10";
 
-async function loadCardsData() {
-  const contentQuestion = getParmFromUrl('question');
-  const contentAnswer = getParmFromUrl('answer');
-  if (contentQuestion === contentAnswer) {
-    console.warn('無効なURLです。');
-   
-    if (document.referrer) {
-        history.back(); // 前のページがある場合は戻る
-    } else {
-        window.location.href = './index.html'; // 直接アクセスされた場合はトップへ
-    }
-    
-  }
-  const contents = ["base_form", "meaning", "present_form", "past_form", "past_participle", "present_participle"];
-  if (!contents.includes(contentQuestion) || !contents.includes(contentAnswer)) {
-    console.warn('無効なURLです。');
-    
-    if (document.referrer) {
-        history.back(); // 前のページがある場合は戻る
-    } else {
-        window.location.href = './index.html'; // 直接アクセスされた場合はトップへ
-    }
-    
-  }
-  
-  const details = getParmFromUrl('detail');
-  const fetchPromises = [];
-
-  // URLパラメータに含まれる学年に応じてフェッチのPromiseを作成
-  if (details.includes('AAA')) {
-    fetchPromises.push(fetch('./AAA.json').then(res => res.json()));
-  }
-  if (details.includes('ABA')) {
-    fetchPromises.push(fetch('./ABA.json').then(res => res.json()));
-  }
-  if (details.includes('ABB')) {
-    fetchPromises.push(fetch('./ABB.json').then(res => res.json()));
-  }
-  if (details.includes('ABC')) {
-    fetchPromises.push(fetch('./ABC.json').then(res => res.json()));
-  }
-
-  // フェッチ対象がない場合の処理
-  if (fetchPromises.length === 0) {
-    console.warn('無効なURLです。');
-    
-    if (document.referrer) {
-        history.back(); // 前のページがある場合は戻る
-    } else {
-        window.location.href = './index.html'; // 直接アクセスされた場合はトップへ
-    }
-    
-    // データがない状態での後続処理を開始
-    alert('無効なURLです。');
-    //startCountdown(); 
-    return;
-  }
-
-  try {
-    // 全てのフェッチが完了するまで待機
-    const results = await Promise.all(fetchPromises);
-        
-    // 取得したデータを一つの配列に結合
-    cardsData = results.flat(); // .flat() でネストされた配列を平坦化
-    // データの読み込みが完了したら後続処理を呼び出す
-    alert('データロード完了');
-    startCountdown();
-  } catch (error) {
-    console.warn('JSONファイルの取得または処理に失敗しました:', error);
-    alert('JSONファイルの取得または処理に失敗しました');
-    alert(error);
-    if (document.referrer) {
-        history.back(); // 前のページがある場合は戻る
-    } else {
-        window.location.href = './index.html'; // 直接アクセスされた場合はトップへ
-    }
-  }
-}
-
-
-
-/*
-cardsData = [
+const debugQuestionsData = [
   {
     "base_form": "beat",
     "meaning": "どきどきする",
     "present_form": "beat(s)",
     "past_form": "beat",
-    "past_participle": "beat, beaten",
+    "past_participle": "beaten",
     "present_participle": "beating"
   },
   {
@@ -114,7 +32,7 @@ cardsData = [
   },
   {
     "base_form": "put",
-    "meaning": "置く, つける",
+    "meaning": "置く/つける",
     "present_form": "put(s)",
     "past_form": "put",
     "past_participle": "put",
@@ -145,93 +63,81 @@ cardsData = [
     "present_participle": "spreading"
   }
 ]; // AAA
-*/
 
-let questions = [];
-const detailQuestion = getParmFromUrl('question');
-const detailAnswer = getParmFromUrl('answer');
+// ----- //
+let questionsData = [];
+let nowQuestionIndex = 0;
 
-let countDownOverlay, countdownTimer, questionContainer;
-let headerQuestion, headerAnswer;
-let nowCountArea;
-let card, cardFrontContent, cardBackContent, cardBackQuestion;
-let showAnswerBtn, nextQuestionBtn;
-document.addEventListener('DOMContentLoaded', () => {
-  // count down - DOM
-  countdownOverlay = document.getElementById('countdown-overlay');
-  countdownTimer = document.getElementById('countdown-timer');
-  questionContainer = document.getElementById('question-container');
-  
-  //
-  headerQuestion = document.getElementById('header-question');
-  headerAnswer = document.getElementById('header-answer');
-  
-  headerQuestion.textContent = detailQuestion;
-  headerAnswer.textContent = detailAnswer;
-  
-  // card container - DOM
-  nowCountArea = document.getElementById('now-count');
-  // card - DOM
-  card = document.getElementById('card');
-  cardFrontContent = document.getElementById('front-content');
-  cardBackContent = document.getElementById('back-content');
-  cardBackQuestion = document.getElementById('back-question-content');
-  
-  
-  loadCardsData();
-  // count down - Event
-  /*let count = 3;
-  const countdownInterval = setInterval(() => {
-    if (count === 0) {
-      countdownTimer.textContent = 'Go!';
-      count -= 1;
-    } else if (count === -1) {
-      clearInterval(countdownInterval); // カウントダウンを停止
-      questions = shuffle(cardsData);
-      const problemCount = document.getElementById('question-count');
-      problemCount.textContent = questions.length;
-      //console.log(questions);
-      nextQuestion(0);
-      
-      countdownOverlay.classList.add('hidden'); // オーバーレイを非表示
-      questionContainer.classList.remove('hidden'); // 問題文を表示
-    } else {
-      if (count === 3) {
-        countdownTimer.classList.remove('loading');
-      }
-      countdownTimer.textContent = count;
-      count -= 1;
-    }
-  }, 100); // 1秒ごとに実行 => 1000*/
-});
-
-
-function startCountdown() {
-  let count = 3;
-  const countdownInterval = setInterval(() => {
-    if (count === 0) {
-      countdownTimer.textContent = 'Go!';
-      count -= 1;
-    } else if (count === -1) {
-      clearInterval(countdownInterval); // カウントダウンを停止
-      questions = shuffle(cardsData);
-      const problemCount = document.getElementById('question-count');
-      problemCount.textContent = questions.length;
-      //console.log(questions);
-      nextQuestion(0);
-      
-      countdownOverlay.classList.add('hidden'); // オーバーレイを非表示
-      questionContainer.classList.remove('hidden'); // 問題文を表示
-    } else {
-      if (count === 3) {
-        countdownTimer.classList.remove('loading');
-      }
-      countdownTimer.textContent = count;
-      count -= 1;
-    }
-  }, 100); // 1秒ごとに実行 => 1000
+function getAllParmFromUrl(parm) {
+  const params = new URLSearchParams(window.location.search);
+  return params.getAll(parm);
+}
+function getParmFromUrl(parm) {
+  const params = new URLSearchParams(window.location.search);
+  return params.get(parm);
 }
 
+async function loadQuestionsData() {
+  let details = getAllParmFromUrl('detail');
+  if (isDebug) {
+    details = debugDetailParms;
+  }
+  if (details.length === 0) {
+    console.warn('無効なURLです。出題範囲が指定されていません。');
+    alert('無効なURLです。出題範囲が指定されていません。');
+    window.location.href = './index.html';
+  }
+  
+  if (isDebug) {
+    questionsData = debugQuestionsData;
+  } else {
+    const fetchPromises = [];
+    
+    if (details.includes('AAA')) {
+      fetchPromises.push(fetch('./AAA.json').then(res => res.json()));
+    }
+    if (details.includes('ABA')) {
+      fetchPromises.push(fetch('./ABA.json').then(res => res.json()));
+    }
+    if (details.includes('ABB')) {
+      fetchPromises.push(fetch('./ABB.json').then(res => res.json()));
+    }
+    if (details.includes('ABC')) {
+      fetchPromises.push(fetch('./ABC.json').then(res => res.json()));
+    }
+    
+    try {
+      const results = await Promise.all(fetchPromises);
+      questionsData = results.flat();
+    } catch (error) {
+    console.error('JSONファイルの取得または処理に失敗しました:', error);
+    alert('JSONファイルの取得または処理に失敗しました');
+    }
+  }
+  
+  questionsData = shuffle(questionsData);
+  
+  let countParm = getParmFromUrl('count');
+  if (isDebug) {
+    countParm = debugCountParm;
+  }
+  if (countParm !== 'all') {
+    if (parseInt(countParm) < 1 || Number.isNaN(parseInt(countParm))) {
+      console.warn('無効なURLです。出題数に文字または無効な数字が設定されています。');
+  alert('無効なURLです。出題数に文字または無効な数字が設定されています。');
+  window.location.href = './index.html';
+    }
+    if (questionsData.length > parseInt(countParm)) {
+      questionsData.length = parseInt(countParm);
+    }
+  }
+  
+  questionCountArea.textContent = questionsData.length;
+  updateQuestion(0);
+  
+  loadingOverlay.classList.add('hidden');
+  questionContainer.classList.remove('hidden');
+}
 
 function shuffle(array) {
   let currentIndex = array.length, randomIndex;
@@ -251,96 +157,119 @@ function shuffle(array) {
   return array;
 }
 
+function updateQuestion(index) {
+  cardFrontContent.textContent = questionsData[index][questionParm];
+  cardFrontSubContent.textContent = `${contentsInJp[contents.indexOf(questionParm)]}を${contentsInJp[contents.indexOf(answerParm)]}に直す`;
+  
+  setTimeout(() => {
+    cardBackQuestion.textContent = `${questionsData[index][questionParm]}を${contentsInJp[contents.indexOf(answerParm)]}に直すと`;
+    cardBackContent.textContent = questionsData[index][answerParm];
+  }, 400);
+  
+  nowCountArea.textContent = index + 1;
+}
+
 function flipCard() {
-  const card = document.getElementById('card');
   card.classList.toggle('flipped');
 }
+
+
+
+let returnButton;
 document.addEventListener('DOMContentLoaded', () => {
-  showAnswerBtn = document.getElementById('show-answer-btn');
-  showAnswerBtn.addEventListener('click', () => {
-    flipCard();
-  });
-  
-  nextQuestionBtn = document.getElementById('next-question-btn');
-  nextQuestionBtn.addEventListener('click', () => {
-    nowQuestionIndex += 1;
-  
-    if (nowQuestionIndex === questions.length) {
-      console.log('end');
-      endCard();
-    } else {
-      nextQuestion(nowQuestionIndex);
+  returnButton = document.getElementById('return-button');
+  returnButton.addEventListener('click', () => {
+    if (window.confirm('本当にやめますか？')) {
+      window.location.href = './index.html';
     }
   });
 });
 
-let nowQuestionIndex = 0;
 
-function nextQuestion(index) {
-  const nowCountArea = document.getElementById('now-count');
-  const card = document.getElementById('card');
-  
-  nowCountArea.textContent = index + 1;
-  card.classList.remove('flipped');
-  console.log('flipped');
-  let question;
-  if (detailQuestion === 'base_form') {
-    question = questions[index].base_form;
-  } else if (detailQuestion === 'meaning'){
-    question = questions[index].meaning;
-  } else if (detailQuestion === 'present_form'){
-    question = questions[index].present_form;
-  } else if (detailQuestion === 'past_form'){
-    question = questions[index].past_form;
-  } else if (detailQuestion === 'past_participle'){
-    question = questions[index].past_participle;
-  } else if (detailQuestion === 'present_participle'){
-    question = questions[index].present_participle;
-  }
-  cardFrontContent.textContent = question;
-  
-  if (detailAnswer === 'base_form') {
-    cardBackContent.textContent = questions[index].base_form;
-  } else if (detailAnswer === 'meaning'){
-    cardBackContent.textContent = questions[index].meaning;
-  } else if (detailAnswer === 'present_form'){
-    cardBackContent.textContent = questions[index].present_form;
-  } else if (detailAnswer === 'past_form'){
-    cardBackContent.textContent = questions[index].past_form;
-  } else if (detailAnswer === 'past_participle'){
-    cardBackContent.textContent = questions[index].past_participle;
-  } else if (detailAnswer === 'present_participle'){
-    cardBackContent.textContent = questions[index].present_participle;
-  }
-  
-  setTimeout(() => {
-    cardBackQuestion.textContent = question;
-  }, 400);
+let questionParm = getParmFromUrl('question');
+let answerParm = getParmFromUrl('answer');
+if (isDebug) {
+  questionParm = debugQuestionParm;
+  answerParm = debugAnswerParm;
 }
-
-function endCard() {
-  document.getElementById('now-and-question').textContent = "終了！";
-  document.getElementById('front-content').textContent = "終了！";
-  document.getElementById('show-answer-btn').classList.add("hidden");
-  document.getElementById('to-index-btn').classList.remove("hidden");
-  const card = document.getElementById('card');
-  card.classList.remove('flipped');
-}
-
-
-/*document.getElementById('show-result-btn').addEventListener('click', () => {
-  showResult();
-});*/
-function showResult() {
-  document.getElementById('back-content').classList.add("hidden");
-  document.getElementById('result-correct').classList.remove("hidden");
-  document.getElementById('next-question-btn').classList.add("hidden");
-  document.getElementById('to-index-btn').classList.remove("hidden");
-  document.getElementById('result-question-count').textContent = questions.length;
-  flipCard();
-}
-
-
-document.getElementById('to-index-btn').addEventListener('click', () => {
+const contents = ["base_form", "meaning", "present_form", "past_form", "past_participle", "present_participle"];
+const contentsInJp = ["原形", "意味", "現在形", "過去形", "過去分詞", "ing形"];
+if (!contents.includes(questionParm) || !contents.includes(answerParm)) {
+  console.warn('無効なURLです。出題または回答に無効な文字列が含まれています。');
+  alert('無効なURLです。出題または回答に無効な文字列が含まれています。');
   window.location.href = './index.html';
+}
+if (questionParm === answerParm) {
+  console.warn('無効なURLです。出題内容と解答内容は異なっている必要があります。');
+  alert('無効なURLです。出題内容と解答内容は異なっている必要があります。');
+  window.location.href = './index.html';
+}
+
+
+let headerQuestion, headerAnswer;
+document.addEventListener('DOMContentLoaded', () => {
+  headerQuestion = document.getElementById('header-question');
+  headerAnswer = document.getElementById('header-answer');
+  
+  headerQuestion.textContent = contentsInJp[contents.indexOf(questionParm)];
+  headerAnswer.textContent = contentsInJp[contents.indexOf(answerParm)];
+});
+
+
+let loadingOverlay, questionContainer;
+let nowCountArea, questionCountArea;
+let card, cardFrontContent, cardFrontSubContent, cardBackContent, cardBarkQuestion;
+let showAnswerBtn, toIndexBtn, nextQuestionBtn;
+document.addEventListener('DOMContentLoaded', () => {
+  loadingOverlay = document.getElementById('loading-overlay');
+  questionContainer = document.getElementById('question-container');
+  
+  nowCountArea = document.getElementById('now-count');
+  questionCountArea = document.getElementById('question-count');
+  
+  card = document.getElementById('card');
+  cardFrontContent = document.getElementById('front-content');
+  cardFrontSubContent = document.getElementById('front-sub-content');
+  cardBackContent = document.getElementById('back-content');
+  cardBackQuestion = document.getElementById('back-question-content');
+  
+  showAnswerBtn = document.getElementById('show-answer-btn');
+  toIndexBtn = document.getElementById('to-index-btn');
+  nextQuestionBtn = document.getElementById('next-question-btn');
+  
+  showAnswerBtn.addEventListener('click', () => {
+    showAnswerBtn.disabled = true;
+    nextQuestionBtn.disabled = true;
+    setTimeout(() => {
+      showAnswerBtn.disabled = false;
+      nextQuestionBtn.disabled = false;
+    }, 600);
+    flipCard();
+  });
+  nextQuestionBtn.addEventListener('click', () => {
+    showAnswerBtn.disabled = true;
+    nextQuestionBtn.disabled = true;
+    setTimeout(() => {
+      showAnswerBtn.disabled = false;
+      nextQuestionBtn.disabled = false;
+    }, 600);
+    
+    if (nowQuestionIndex + 1 === questionsData.length) {
+      console.log('a');
+      cardFrontContent.textContent = '終了！';
+      cardFrontSubContent.textContent = '';
+      showAnswerBtn.classList.add('hidden');
+      toIndexBtn.classList.remove('hidden');
+    } else {
+      nowQuestionIndex += 1;
+      updateQuestion(nowQuestionIndex);
+    }
+    flipCard();
+  });
+  toIndexBtn.addEventListener('click', () => {
+    window.location.href = './index.html';
+  });
+  
+
+  loadQuestionsData();
 });

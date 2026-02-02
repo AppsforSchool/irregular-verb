@@ -10,8 +10,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=BIZ+UDGothic:wght@400;700&display=swap" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Signika+Negative:wght@300..700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Signika+Negative:wght@300..700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="cardStyle.css">
 </head>
   
@@ -19,15 +19,14 @@
   <header id="app-header">
     <div id="title-area">
       <button id="return-button">やめる</button>
-      <p id="header-title"><span id="header-question"></span>で<span id="header-answer"></span>を暗記</p>
+      <p id="header-title"><span id="header-question">--</span>から<span id="header-answer">--</span>を暗記</p>
     </div>
     <div id="user-area" class="hidden">
       <p id="header-username" class="hidden">loading...</p>
     </div>
   </header>
-  
-  <div id="countdown-overlay">
-    <p id="countdown-timer" class="loading">loading...</p>
+  <div id="loading-overlay">
+    <p id="loading-text">loading...</p>
   </div>
   
   <main>
@@ -39,6 +38,7 @@
         <div class="flip-card-inner" id="card">
           <div class="flip-card-front">
             <p id="front-content">loading...</p>
+            <p id="front-sub-content">loading...</p>
       
             <button id="show-answer-btn">答えをみる</button>
             <button id="to-index-btn" class="hidden">ホーム<span id="mini">へもどる</span></button>
@@ -49,7 +49,7 @@
       
             <button id="next-question-btn">次へ</button>
             <button id="disliked-add-btn" class="add hidden">苦手に登録</button>
-            <button id="to-index-btn" class="hidden">ホームへもどる</button>
+            <button id="to-index-btna" class="hidden">ホームへもどる</button>
           </div>
         </div>
       </div>
@@ -67,5 +67,5 @@
   
 </body>
   
-<script type="module" src="cardScript.js"></script>
+<script type="module" src="script.js"></script>
 </html>
