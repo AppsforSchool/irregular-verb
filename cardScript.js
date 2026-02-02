@@ -263,7 +263,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 600);
     
     if (nowQuestionIndex + 1 === questionsData.length) {
-      console.log('a');
       cardFrontContent.textContent = '終了！';
       cardFrontSubContent.textContent = '';
       showAnswerBtn.classList.add('hidden');
@@ -279,5 +278,5 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   
 
-  loadQuestionsData();
+  // loadQuestionsData();
 });
