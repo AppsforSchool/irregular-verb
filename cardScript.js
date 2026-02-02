@@ -1,4 +1,4 @@
-const isDebug = true;
+const isDebug = false;
 
 const debugQuestionParm = "base_form";
 const debugAnswerParm = "present_form";
