@@ -78,7 +78,6 @@ function getParmFromUrl(parm) {
   return params.get(parm);
 }
 
-alert("チェック開始: " + window.location.search);
 
 let questionParm = getParmFromUrl('question');
 let answerParm = getParmFromUrl('answer');
@@ -280,5 +279,5 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   
 
-  // loadQuestionsData();
+  loadQuestionsData();
 });
