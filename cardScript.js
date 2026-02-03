@@ -136,8 +136,9 @@ async function loadQuestionsData() {
       const results = await Promise.all(fetchPromises);
       questionsData = results.flat();
     } catch (error) {
-    console.error('JSONファイルの取得または処理に失敗しました:', error);
-    alert('JSONファイルの取得または処理に失敗しました');
+      console.error('JSONファイルの取得または処理に失敗しました:', error);
+      alert('JSONファイルの取得または処理に失敗しました');
+      window.location.href = './index.html';
     }
   }
   
