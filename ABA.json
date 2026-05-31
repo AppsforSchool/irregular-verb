@@ -1,0 +1,26 @@
+[
+  {
+    "base_form": "become",
+    "meaning": "…になる",
+    "present_form": "become(s)",
+    "past_form": "became",
+    "past_participle": "become",
+    "present_participle": "becoming"
+  },
+  {
+    "base_form": "come",
+    "meaning": "来る",
+    "present_form": "come(s)",
+    "past_form": "came",
+    "past_participle": "come",
+    "present_participle": "coming"
+  },
+  {
+    "base_form": "run",
+    "meaning": "走る",
+    "present_form": "run(s)",
+    "past_form": "ran",
+    "past_participle": "run",
+    "present_participle": "running"
+  }
+]
