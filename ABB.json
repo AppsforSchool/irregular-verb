@@ -1,0 +1,162 @@
+[
+  {
+    "base_form": "bring",
+    "meaning": "持ってくる",
+    "present_form": "bring(s)",
+    "past_form": "brought",
+    "past_participle": "brought",
+    "present_participle": "bringing"
+  },
+  {
+    "base_form": "build",
+    "meaning": "建てる",
+    "present_form": "bild(s)",
+    "past_form": "built",
+    "past_participle": "built",
+    "present_participle": "building"
+  },
+  {
+    "base_form": "buy",
+    "meaning": "買う",
+    "present_form": "buy(s)",
+    "past_form": "bought",
+    "past_participle": "bought",
+    "present_participle": "buying"
+  },
+  {
+    "base_form": "catch",
+    "meaning": "捕まえる",
+    "present_form": "catch(es)",
+    "past_form": "caught",
+    "past_participle": "caught",
+    "present_participle": "catching"
+  },
+  {
+    "base_form": "feel",
+    "meaning": "感じる",
+    "present_form": "feel(s)",
+    "past_form": "felt",
+    "past_participle": "felt",
+    "present_participle": "feeling"
+  },
+  {
+    "base_form": "fight",
+    "meaning": "たたかう",
+    "present_form": "fight(s)",
+    "past_form": "fought",
+    "past_participle": "fought",
+    "present_participle": "fighting"
+  },
+  {
+    "base_form": "find",
+    "meaning": "見つける",
+    "present_form": "find(s)",
+    "past_form": "found",
+    "past_participle": "found",
+    "present_participle": "finding"
+  },
+  {
+    "base_form": "forget",
+    "meaning": "忘れる",
+    "present_form": "forget(s)",
+    "past_form": "forgot",
+    "past_participle": "forgot, forgotten",
+    "present_participle": "forgetting"
+  },
+  {
+    "base_form": "get",
+    "meaning": "得る",
+    "present_form": "get(s)",
+    "past_form": "got",
+    "past_participle": "got, gotten",
+    "present_participle": "getting"
+  },
+  {
+    "base_form": "have",
+    "meaning": "持っている",
+    "present_form": "have, has",
+    "past_form": "had",
+    "past_participle": "had",
+    "present_participle": "having"
+  },
+  {
+    "base_form": "hear",
+    "meaning": "聞く",
+    "present_form": "hear(s)",
+    "past_form": "heard",
+    "past_participle": "heard",
+    "present_participle": "hearing"
+  },
+  {
+    "base_form": "hold",
+    "meaning": "持つ, つかむ, 抱く",
+    "present_form": "hold(s)",
+    "past_form": "held",
+    "past_participle": "held",
+    "present_participle": "holding"
+  },
+  {
+    "base_form": "keep",
+    "meaning": "保つ",
+    "present_form": "keep(s)",
+    "past_form": "kept",
+    "past_participle": "kept",
+    "present_participle": "keeping"
+  },
+  {
+    "base_form": "lead",
+    "meaning": "導く",
+    "present_form": "lead(s)",
+    "past_form": "led",
+    "past_participle": "led",
+    "present_participle": "leading"
+  },
+  {
+    "base_form": "leave",
+    "meaning": "出発する",
+    "present_form": "leave(s)",
+    "past_form": "left",
+    "past_participle": "left",
+    "present_participle": "leaving"
+  },
+  {
+    "base_form": "lose",
+    "meaning": "失う",
+    "present_form": "lose(s)",
+    "past_form": "lost",
+    "past_participle": "lost",
+    "present_participle": "losing"
+  },
+  {
+    "base_form": "make",
+    "meaning": "作る",
+    "present_form": "make(s)",
+    "past_form": "made",
+    "past_participle": "made",
+    "present_participle": "making"
+  },
+  {
+    "base_form": "mean",
+    "meaning": "意味する",
+    "present_form": "mean(s)",
+    "past_form": "meant",
+    "past_participle": "meant",
+    "present_participle": "meaning"
+  },
+  {
+    "base_form": "meet",
+    "meaning": "会う",
+    "present_form": "meet(s)",
+    "past_form": "met",
+    "past_participle": "met",
+    "present_participle": "meeting"
+  },
+  {
+    "base_form": "pay",
+    "meaning": "払う",
+    "present_form": "pay(s)",
+    "past_form": "paid",
+    "past_participle": "paid",
+    "present_participle": "paying"
+  },
+]
