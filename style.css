@@ -14,6 +14,9 @@ body {
   line-height: 1.6;
   touch-action: manipulation;
 }
+div {
+  touch-action: manipulation;
+}
 /*
 button, input, span {
   -webkit-tap-highlight-color: transparent;
