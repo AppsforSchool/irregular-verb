@@ -1,0 +1,34 @@
+[
+  {
+    "base_form": "be",
+    "meaning": "…である",
+    "present_form": "am, is / are",
+    "past_form": "was / were",
+    "past_participle": "been",
+    "present_participle": "being"
+  },
+  {
+    "base_form": "begin",
+    "meaning": "始まる",
+    "present_form": "begin(s)",
+    "past_form": "began",
+    "past_participle": "begun",
+    "present_participle": "beginning"
+  },
+  {
+    "base_form": "break",
+    "meaning": "破る",
+    "present_form": "break(s)",
+    "past_form": "broke",
+    "past_participle": "broken",
+    "present_participle": "breaking"
+  },
+  {
+    "base_form": "choose",
+    "meaning": "選ぶ",
+    "present_form": "choose(s)",
+    "past_form": "chose",
+    "past_participle": "chosen",
+    "present_participle": "choosing"
+  }
+]
