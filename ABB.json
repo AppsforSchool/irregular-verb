@@ -159,4 +159,92 @@
     "past_participle": "paid",
     "present_participle": "paying"
   },
+  {
+    "base_form": "say",
+    "meaning": "言う",
+    "present_form": "say(s)",
+    "past_form": "said",
+    "past_participle": "said",
+    "present_participle": "saying"
+  },
+  {
+    "base_form": "sell",
+    "meaning": "売る",
+    "present_form": "sell(s)",
+    "past_form": "sold",
+    "past_participle": "sold",
+    "present_participle": "selling"
+  },
+  {
+    "base_form": "send",
+    "meaning": "おくる",
+    "present_form": "send(s)",
+    "past_form": "sent",
+    "past_participle": "sent",
+    "present_participle": "sending"
+  },
+  {
+    "base_form": "sit",
+    "meaning": "すわる",
+    "present_form": "sit(s)",
+    "past_form": "sat",
+    "past_participle": "sat",
+    "present_participle": "sitting"
+  },
+  {
+    "base_form": "spend",
+    "meaning": "過ごす",
+    "present_form": "spend(s)",
+    "past_form": "spent",
+    "past_participle": "spent",
+    "present_participle": "spending"
+  },
+  {
+    "base_form": "stand",
+    "meaning": "立っている",
+    "present_form": "stand(s)",
+    "past_form": "stood",
+    "past_participle": "stood",
+    "present_participle": "standing"
+  },
+  {
+    "base_form": "teach",
+    "meaning": "教える",
+    "present_form": "teach(es)",
+    "past_form": "taught",
+    "past_participle": "taught",
+    "present_participle": "teaching"
+  },
+  {
+    "base_form": "tell",
+    "meaning": "話す, 教える",
+    "present_form": "tell(s)",
+    "past_form": "told",
+    "past_participle": "told",
+    "present_participle": "telling"
+  },
+  {
+    "base_form": "think",
+    "meaning": "思う",
+    "present_form": "think(s)",
+    "past_form": "thought",
+    "past_participle": "thought",
+    "present_participle": "thinking"
+  },
+  {
+    "base_form": "understand",
+    "meaning": "理解する",
+    "present_form": "understand(s)",
+    "past_form": "understood",
+    "past_participle": "understood",
+    "present_participle": "understanding"
+  },
+  {
+    "base_form": "win",
+    "meaning": "勝つ",
+    "present_form": "win(s)",
+    "past_form": "won",
+    "past_participle": "won",
+    "present_participle": "winning"
+  }
 ]
