@@ -30,5 +30,53 @@
     "past_form": "chose",
     "past_participle": "chosen",
     "present_participle": "choosing"
-  }
+  },
+  {
+    "base_form": "do",
+    "meaning": "する",
+    "present_form": "do, does",
+    "past_form": "did",
+    "past_participle": "done",
+    "present_participle": "doing"
+  },
+  {
+    "base_form": "draw",
+    "meaning": "かく",
+    "present_form": "draw(s)",
+    "past_form": "drew",
+    "past_participle": "drawn",
+    "present_participle": "drawing"
+  },
+  {
+    "base_form": "drink",
+    "meaning": "飲む",
+    "present_form": "drink(s)",
+    "past_form": "drank",
+    "past_participle": "drunk",
+    "present_participle": "drinking"
+  },
+  {
+    "base_form": "eat",
+    "meaning": "食べる",
+    "present_form": "eat(s)",
+    "past_form": "ate",
+    "past_participle": "eaten",
+    "present_participle": "eating"
+  },
+  {
+    "base_form": "fall",
+    "meaning": "落ちる",
+    "present_form": "fall(s)",
+    "past_form": "fell",
+    "past_participle": "fallen",
+    "present_participle": "falling"
+  },
+  {
+    "base_form": "give",
+    "meaning": "与える",
+    "present_form": "give(s)",
+    "past_form": "gave",
+    "past_participle": "given",
+    "present_participle": "giving"
+  },
 ]
