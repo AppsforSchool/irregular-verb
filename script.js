@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // detail buttons
 let detailSelectionState = new Set(["AAA", "ABA", "ABB", "ABC"]);
-let allQuestionCount = 61;
+let allQuestionCount = 65;
 let detailButtons, allQuestion;
 document.addEventListener('DOMContentLoaded', () => {
   detailButtons = document.querySelectorAll('.detail-button');
