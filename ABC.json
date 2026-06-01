@@ -79,4 +79,108 @@
     "past_participle": "given",
     "present_participle": "giving"
   },
+  {
+    "base_form": "go",
+    "meaning": "行く",
+    "present_form": "go(es)",
+    "past_form": "went",
+    "past_participle": "gone",
+    "present_participle": "going"
+  },
+  {
+    "base_form": "grow",
+    "meaning": "(しだいに)…になる",
+    "present_form": "grow(s)",
+    "past_form": "grew",
+    "past_participle": "grown",
+    "present_participle": "growing"
+  },
+  {
+    "base_form": "know",
+    "meaning": "知っている",
+    "present_form": "know(s)",
+    "past_form": "knew",
+    "past_participle": "known",
+    "present_participle": "knowing"
+  },
+  {
+    "base_form": "ride",
+    "meaning": "乗る",
+    "present_form": "ride(s)",
+    "past_form": "rode",
+    "past_participle": "ridden",
+    "present_participle": "riding"
+  },
+  {
+    "base_form": "rise",
+    "meaning": "のぼる",
+    "present_form": "rise(s)",
+    "past_form": "rose",
+    "past_participle": "risen",
+    "present_participle": "rising"
+  },
+  {
+    "base_form": "see",
+    "meaning": "見る",
+    "present_form": "see(s)",
+    "past_form": "saw",
+    "past_participle": "seen",
+    "present_participle": "seeing"
+  },
+  {
+    "base_form": "show",
+    "meaning": "見せる",
+    "present_form": "show(s)",
+    "past_form": "showed",
+    "past_participle": "shown",
+    "present_participle": "showing"
+  },
+  {
+    "base_form": "sing",
+    "meaning": "歌う",
+    "present_form": "sing(s)",
+    "past_form": "sang",
+    "past_participle": "sung",
+    "present_participle": "singing"
+  },
+  {
+    "base_form": "speak",
+    "meaning": "話す",
+    "present_form": "speak(s)",
+    "past_form": "spoke",
+    "past_participle": "spoken",
+    "present_participle": "speaking"
+  },
+  {
+    "base_form": "swim",
+    "meaning": "泳ぐ",
+    "present_form": "swim(s)",
+    "past_form": "swam",
+    "past_participle": "swum",
+    "present_participle": "swimming"
+  },
+  {
+    "base_form": "take",
+    "meaning": "持っていく",
+    "present_form": "take(s)",
+    "past_form": "took",
+    "past_participle": "taken",
+    "present_participle": "taking"
+  },
+  {
+    "base_form": "wake",
+    "meaning": "目が覚める",
+    "present_form": "wake(s)",
+    "past_form": "woke",
+    "past_participle": "woken",
+    "present_participle": "waking"
+  },
+  {
+    "base_form": "write",
+    "meaning": "書く",
+    "present_form": "write(s)",
+    "past_form": "wrote",
+    "past_participle": "written",
+    "present_participle": "writing"
+  }
 ]
