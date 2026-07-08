@@ -79,29 +79,6 @@ function getParmFromUrl(parm) {
 }
 
 
-let questionParm = getParmFromUrl('question');
-let answerParm = getParmFromUrl('answer');
-if (isDebug) {
-  questionParm = debugQuestionParm;
-  answerParm = debugAnswerParm;
-}
-const contents = ["base_form", "meaning", "present_form", "past_form", "past_participle", "present_participle"];
-const contentsInJp = ["原形", "意味", "現在形", "過去形", "過去分詞", "ing形"];
-if (!contents.includes(questionParm) || !contents.includes(answerParm)) {
-  console.warn('無効なURLです。出題または回答に無効な文字列が含まれています。');
-  alert('無効なURLです。出題または回答に無効な文字列が含まれています。');
-  window.location.href = './index.html';
-}
-if (questionParm === answerParm) {
-  console.warn('無効なURLです。出題内容と解答内容は異なっている必要があります。');
-  alert('無効なURLです。出題内容と解答内容は異なっている必要があります。');
-  window.location.href = './index.html';
-}
-
-
-
-
-
 
 async function loadQuestionsData() {
   let details = getAllParmFromUrl('detail');
@@ -185,12 +162,12 @@ function shuffle(array) {
 }
 
 function updateQuestion(index) {
-  cardFrontContent.textContent = questionsData[index][questionParm];
-  cardFrontSubContent.textContent = `${contentsInJp[contents.indexOf(questionParm)]}を${contentsInJp[contents.indexOf(answerParm)]}に直す`;
+  cardFrontContent.textContent = questionsData[index]["idiom"];
+  // cardFrontSubContent.textContent = `${contentsInJp[contents.indexOf(questionParm)]}を${contentsInJp[contents.indexOf(answerParm)]}に直す`;
   
   setTimeout(() => {
-    cardBackQuestion.textContent = `${questionsData[index][questionParm]}を${contentsInJp[contents.indexOf(answerParm)]}に直すと`;
-    cardBackContent.textContent = questionsData[index][answerParm];
+    //cardBackQuestion.textContent = `${questionsData[index][questionParm]}を${contentsInJp[contents.indexOf(answerParm)]}に直すと`;
+    cardBackContent.textContent = questionsData[index]["read"];
   }, 400);
   
   nowCountArea.textContent = index + 1;
@@ -214,16 +191,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-
-
-let headerQuestion, headerAnswer;
-document.addEventListener('DOMContentLoaded', () => {
-  headerQuestion = document.getElementById('header-question');
-  headerAnswer = document.getElementById('header-answer');
-  
-  headerQuestion.textContent = contentsInJp[contents.indexOf(questionParm)];
-  headerAnswer.textContent = contentsInJp[contents.indexOf(answerParm)];
-});
 
 
 let loadingOverlay, questionContainer;
